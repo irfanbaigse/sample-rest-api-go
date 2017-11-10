@@ -5,12 +5,15 @@ import (
 	"log"
 	"net/http"
 	"encoding/json"
+	"fmt"
 )
 
 func main() {
 	router := mux.NewRouter()
 	println("rest-api");
 	router.HandleFunc("/people", getPeople).Methods("GET");
+	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
+
 	log.Fatal(http.ListenAndServe(":9192", router))
 }
 
