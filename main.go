@@ -11,10 +11,15 @@ import (
 func main() {
 	router := mux.NewRouter()
 	println("rest-api");
+	router.HandleFunc("/", Index).Methods("GET");
 	router.HandleFunc("/people", getPeople).Methods("GET");
 	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
 
 	log.Fatal(http.ListenAndServe(":9192", router))
+}
+
+func Index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Welcome!\n")
 }
 
 type Person struct {
