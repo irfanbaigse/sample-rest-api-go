@@ -1,1 +1,1 @@
-web: ./sample-rest-api-go
+web: ./bin/sample-rest-api-go
