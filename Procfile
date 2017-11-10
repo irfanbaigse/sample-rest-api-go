@@ -1,1 +1,1 @@
-web: bin/rest-api
+web: rest-api
