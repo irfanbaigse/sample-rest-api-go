@@ -12,6 +12,7 @@ func main() {
 	fmt.Println("listening...")
 	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
 	err := http.ListenAndServe(":9192", nil)
+	
 	if err != nil {
 		panic(err)
 	}
