@@ -20,7 +20,7 @@ $ PORT=8191 ./bin/rest-api
 
 Make a HTTP request to the application:
 
-[CURL](https://i.imgur.com/VHX4hTh.png)
+![CURL](https://i.imgur.com/VHX4hTh.png)
 
 
 # Deploying To Heroku
@@ -43,7 +43,7 @@ $ heroku create -b https://github.com/kr/heroku-buildpack-go.git sample-rest-api
 ``
 $ git push heroku master
 ``
-[Push](https://i.imgur.com/FeD5oED.png)
+![Push](https://i.imgur.com/FeD5oED.png)
 
 
 now goto https://sample-rest-api-go.herokuapp.com
