@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"encoding/json"
 )
 
@@ -10,17 +11,18 @@ func main() {
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/people", getPeople)
 	fmt.Println("listening...")
-	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
-	err := http.ListenAndServe(":9192", nil)
-	
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
 		panic(err)
 	}
+
+
+	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
+
 }
 
 func hello(res http.ResponseWriter, req *http.Request) {
-	welcome := make([]int64, 0)
-	json.NewEncoder(res).Encode(welcome);
+	fmt.Fprintln(res, "hello, world")
 }
 
 type Person struct {
