@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/people", getPeople)
 
 	fmt.Println("listening...")
@@ -18,8 +18,9 @@ func main() {
 	}
 }
 
-func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, "hello, world")
+func index(res http.ResponseWriter, req *http.Request) {
+	welcome := make([]int64, 0)
+	json.NewEncoder(res).Encode(welcome);
 }
 
 type Person struct {
