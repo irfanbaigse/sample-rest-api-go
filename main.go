@@ -3,19 +3,17 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"os"
 	"encoding/json"
 )
 
 func main() {
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/people", getPeople)
-	fmt.Println("listening...")
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	fmt.Println("listening... 8192")
+	err := http.ListenAndServe(":8192", nil)
 	if err != nil {
 		panic(err)
 	}
-
 
 	fmt.Println("INFO: No PORT environment variable detected, defaulting to 9192")
 
